@@ -1,164 +1,118 @@
-# Ali Lekhal Hanifi — Full-Stack Developer Portfolio
+# alilekhal.com
 
-<div align="center">
+Repositorio oficial del portfolio personal de **Ali Lekhal Hanifi**, desarrollador web full-stack.
 
-  [![Live Site](https://img.shields.io/badge/Production-alilekhal.com-black?style=for-the-badge&logo=vercel&logoColor=white)](https://www.alilekhal.com)
-  [![Next.js](https://img.shields.io/badge/Next.js-14.2-black?style=for-the-badge&logo=next.js&logoColor=white)](https://nextjs.org/)
-  [![TypeScript](https://img.shields.io/badge/TypeScript-5.0-3178C6?style=for-the-badge&logo=typescript&logoColor=white)](https://www.typescriptlang.org/)
-  [![React](https://img.shields.io/badge/React-18-61DAFB?style=for-the-badge&logo=react&logoColor=black)](https://react.dev/)
-  [![Cloudflare](https://img.shields.io/badge/DNS-Cloudflare-F38020?style=for-the-badge&logo=cloudflare&logoColor=white)](https://www.cloudflare.com/)
-
-  <p align="center">
-    <strong>Sitio web oficial y portfolio interactivo de Ali Lekhal Hanifi</strong><br />
-    Desarrollador Web Full-Stack · Valencia, España
-  </p>
-
-  <p align="center">
-    <a href="https://www.alilekhal.com"><strong>Explorar Portfolio en Vivo »</strong></a>
-    <br />
-    <br />
-    <a href="https://www.linkedin.com/in/ali-lekhal-hanifi-528680437/">LinkedIn</a> ·
-    <a href="https://github.com/Alilek001">GitHub</a> ·
-    <a href="mailto:contacto@alilekhal.com">Contacto</a>
-  </p>
-
-</div>
+- **Producción:** [https://www.alilekhal.com](https://www.alilekhal.com)
+- **LinkedIn:** [linkedin.com/in/ali-lekhal-hanifi-528680437](https://www.linkedin.com/in/ali-lekhal-hanifi-528680437/)
+- **Contacto:** contacto@alilekhal.com / lekhalali56@gmail.com
 
 ---
 
-## 📌 Descripción
+## Resumen técnico
 
-Portfolio web de alto rendimiento diseñado y desarrollado para presentar proyectos full-stack, capacidades técnicas y trayectoria profesional. Construido sobre la arquitectura **Next.js 14 App Router**, combina una experiencia visual inmersiva orientada al diseño contemporáneo con las mejores prácticas de rendimiento web, accesibilidad, SEO y seguridad.
+Aplicación web desarrollada sobre Next.js 14 con App Router, diseñada con un enfoque orientado a rendimiento, interactividad y mantenibilidad. Incluye internacionalización completa (ES/EN), animaciones fluidas y un sistema de contacto serverless con autenticación de dominio.
 
----
+### Puntos clave
 
-## ✨ Características Principales
-
-- **⚡ Rendimiento y Peso Ligero:**
-  - Optimizado para tiempos de carga ultrarrápidos (~189 kB First Load JS).
-  - Generación estática e incremental (SSG/ISR) para una entrega instantánea a través de Edge CDN.
-- **🌍 Arquitectura Bilingüe (i18n):**
-  - Soporte nativo para **Español (ES)** e **Inglés (EN)**.
-  - Conmutador dinámico con persistencia de preferencia en el navegador del usuario.
-- **🎨 Experiencia Visual & Creative Coding:**
-  - Desplazamiento suave cinemático con **Lenis**.
-  - Animaciones basadas en física y transiciones de estados con **Framer Motion** y **GSAP**.
-  - Cursor contextual interactivo y vista dinámica dual para habilidades técnicas (*Vista Caos* interactiva / *Vista Legible* estructurada).
-- **📬 Sistema de Contacto Serverless de Alta Fiabilidad:**
-  - Endpoint seguro en `/api/email` integrado con **Resend API**.
-  - Autenticación criptográfica **SPF** y **DKIM** vinculada a Cloudflare para entrega garantizada sin caer en spam.
-  - Sanitización de entradas con `isomorphic-dompurify` para protección total contra inyecciones XSS.
-  - Mecanismo de *Rate Limiting* en servidor contra ataques de denegación o saturación por bots.
-- **📄 Descarga Directa de Currículum:**
-  - Integración directa del CV actualizado en formato PDF accesible en un clic desde la sección de presentación.
-- **🔍 SEO y Metadatos OpenGraph:**
-  - Metadatos semánticos completos, Twitter Cards y etiquetas OpenGraph optimizadas para compartir en LinkedIn, Twitter y plataformas de reclutamiento.
+- **Rendimiento:** Carga inicial ligera (~189 kB First Load JS) mediante generación estática (SSG) y división de código por rutas.
+- **Internacionalización:** Soporte nativo para Español e Inglés con persistencia de selección en el cliente (`localStorage`).
+- **Animaciones e interfaz:** Integración de Lenis para scroll suave, Framer Motion y GSAP para transiciones de página y microinteracciones, y SCSS modular para el diseño de componentes.
+- **Servicio de correo:** Endpoint `/api/email` en entorno serverless conectado a Resend API. Autenticación mediante registros SPF y DKIM en Cloudflare para entrega directa sin intermediarios, junto a sanitización de entradas con DOMPurify y control de tasa (rate limiting).
+- **SEO y metadatos:** Configuración de OpenGraph, Twitter Cards y metadatos semánticos para optimización en motores de búsqueda y previsualizaciones en redes profesionales.
 
 ---
 
-## 🛠️ Stack Tecnológico
+## Tecnologías utilizadas
 
-| Capa | Tecnologías |
-| :--- | :--- |
-| **Frontend Core** | [Next.js 14](https://nextjs.org/) (App Router), [React 18](https://react.dev/), [TypeScript](https://www.typescriptlang.org/) |
-| **Estilos & UI** | SCSS Modules, CSS Grid, Flexbox, Diseño Responsive Fluido |
-| **Animación & Motion** | [Framer Motion](https://www.framer.com/motion/), [GSAP](https://gsap.com/), [@studio-freight/lenis](https://github.com/darkroomengineering/lenis) |
-| **Backend & Serverless** | Next.js API Routes (Node.js runtime), [Resend](https://resend.com/) SDK |
-| **Seguridad & Datos** | `isomorphic-dompurify`, Validación de Esquemas |
-| **Infraestructura & CI/CD** | [Vercel](https://vercel.com/) (Edge Hosting & CI/CD), [Cloudflare](https://www.cloudflare.com/) (DNS & SSL/TLS) |
+- **Framework principal:** Next.js 14.2 (App Router)
+- **Librería de interfaz:** React 18
+- **Lenguaje:** TypeScript 5
+- **Estilos:** SCSS Modules
+- **Librerías de animación:** Framer Motion, GSAP, Lenis Scroll
+- **Servicio de correo y API:** Resend SDK, isomorphic-dompurify
+- **Despliegue e infraestructura:** Vercel (Edge Network) y Cloudflare (Gestión de DNS y SSL)
 
 ---
 
-## 📂 Estructura del Proyecto
+## Estructura del repositorio
 
 ```text
 portfolio-ali/
 ├── app/
 │   ├── api/
-│   │   └── email/              # Endpoint Serverless para envío de correo (Resend)
+│   │   └── email/              # Endpoint de envío de correo (Resend)
 │   ├── components/
-│   │   ├── context/            # Contextos de React (Cursor, Scroll, Transiciones)
-│   │   ├── effects/            # Componentes de efectos visuales (Lenis, Cursor, Preloader)
-│   │   ├── hooks/              # Custom Hooks reutilizables
-│   │   ├── i18n/               # Sistema de traducción y diccionario de textos (ES/EN)
-│   │   ├── project/            # Páginas dinámicas y datos de proyectos
-│   │   └── ui/                 # Componentes UI (Navegación, Menús, Cards, LangToggle)
-│   ├── meta/                   # Configuración SEO, OpenGraph y Twitter Cards
-│   ├── pages/                  # Secciones de la página principal (Hero, About, Skills, Contact, Footer)
-│   ├── scss/                   # Estilos globales y reset
-│   ├── layout.tsx              # Root Layout de la aplicación
-│   └── page.jsx                # Página de inicio principal
+│   │   ├── context/            # Contextos de React (Cursor, Scroll, Idioma)
+│   │   ├── effects/            # Efectos visuales y scroll suave (Lenis)
+│   │   ├── hooks/              # Custom hooks (useMediaQuery, useLocalTime)
+│   │   ├── i18n/               # Diccionario de traducciones (translations.ts)
+│   │   ├── project/            # Vistas dinámicas y datos de proyectos
+│   │   └── ui/                 # Componentes de navegación, menús y tarjetas
+│   ├── meta/                   # Proveedor de metadatos SEO y OpenGraph
+│   ├── pages/                  # Secciones de la landing (Hero, About, Skills, Contact)
+│   ├── scss/                   # Variables globales, mixins y reset
+│   ├── layout.tsx              # Layout raíz de la aplicación
+│   └── page.jsx                # Página de inicio
 ├── public/
-│   ├── assets/                 # Fuentes tipográficas y texturas SVG
-│   ├── images/                 # Imágenes optimizadas en formato WebP
-│   └── cv-ali-lekhal.pdf       # Currículum Vitae oficial descargable
-├── next.config.mjs             # Configuración de compilación Next.js
-└── package.json                # Dependencias y scripts del proyecto
+│   ├── assets/                 # Tipografías y recursos vectoriales
+│   ├── images/                 # Imágenes de proyectos y recursos WebP
+│   └── cv-ali-lekhal.pdf       # Archivo del currículum para descarga
+├── next.config.mjs             # Configuración de Next.js
+└── package.json                # Scripts y dependencias
 ```
 
 ---
 
-## 🚀 Instalación y Desarrollo Local
+## Puesta en marcha local
 
-### Prerrequisitos
-- **Node.js** >= 18.17.0
-- **npm** >= 9.0.0
+### Requisitos previos
 
-### Pasos
+- Node.js 18.17 o superior
+- npm 9 o superior
 
-1. **Clonar el repositorio:**
+### Instalación
+
+1. Clonar el repositorio:
    ```bash
-   git clone https://github.com/Alilek001/portfolio-alilekhal.git
-   cd portfolio-alilekhal
+   git clone https://github.com/Alilek001/-portfolio-alilekhal.git
+   cd -portfolio-alilekhal
    ```
 
-2. **Instalar dependencias:**
+2. Instalar dependencias:
    ```bash
    npm install
    ```
 
-3. **Configurar variables de entorno:**
-   Crea un archivo `.env.local` en la raíz del proyecto:
+3. Variables de entorno:
+   Crear un archivo `.env.local` en la raíz con la siguiente configuración:
    ```env
-   RESEND_API_KEY=tu_clave_de_resend
+   RESEND_API_KEY=tu_api_key_de_resend
    CONTACT_FROM_EMAIL=Ali Lekhal <contacto@alilekhal.com>
    CONTACT_TO_EMAIL=lekhalali56@gmail.com
    ```
 
-4. **Ejecutar el servidor de desarrollo:**
+4. Iniciar servidor de desarrollo:
    ```bash
    npm run dev
    ```
-   Abre [http://localhost:3000](http://localhost:3000) en tu navegador para ver el resultado.
+   Disponible en `http://localhost:3000`.
 
-5. **Compilar para producción:**
+5. Comandos de compilación:
    ```bash
-   npm run build
-   npm run start
+   npm run build   # Compila la versión de producción optimizada
+   npm run start   # Inicia el servidor de producción local
+   npm run lint    # Ejecuta el análisis de código con ESLint
    ```
 
 ---
 
-## 🚢 Despliegue e Infraestructura
+## Despliegue y flujo de trabajo
 
-El proyecto sigue un flujo de **Integración y Despliegue Continuo (CI/CD)**:
-
-1. **Control de Versiones:** Cada commit en la rama `main` en GitHub activa automáticamente un nuevo despliegue.
-2. **Hosting en Vercel:** Se encarga de la compilación, generación estática y distribución global en su red de servidores Edge.
-3. **Gestión de Dominio en Cloudflare:** Resuelve el dominio `alilekhal.com` y gestiona los registros de verificación criptográfica (DKIM/SPF) para la entrega de correos.
+- **CI/CD:** Cada integración en la rama `main` despliega automáticamente una nueva versión en producción a través de Vercel.
+- **Red:** El tráfico del dominio `alilekhal.com` se resuelve a través de Cloudflare hacia la red de distribución de Vercel con certificados TLS/HTTPS gestionados automáticamente.
 
 ---
 
-## 👤 Autor
+## Licencia y autoría
 
-**Ali Lekhal Hanifi**
-- **Sitio Web:** [alilekhal.com](https://www.alilekhal.com)
-- **LinkedIn:** [linkedin.com/in/ali-lekhal-hanifi-528680437](https://www.linkedin.com/in/ali-lekhal-hanifi-528680437/)
-- **GitHub:** [@Alilek001](https://github.com/Alilek001)
-- **Correo:** [lekhalali56@gmail.com](mailto:lekhalali56@gmail.com)
-
----
-
-<div align="center">
-  <sub>Diseñado y desarrollado por Ali Lekhal Hanifi · Todos los derechos reservados © 2026</sub>
-</div>
+Desarrollado y mantenido por **Ali Lekhal Hanifi**. Todos los derechos reservados.
