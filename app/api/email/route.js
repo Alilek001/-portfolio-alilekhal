@@ -1,5 +1,5 @@
 import { NextResponse } from "next/server";
-import nodemailer from "nodemailer";
+import { Resend } from "resend";
 import { sanitize } from "isomorphic-dompurify";
 
 // Simple in-memory store for rate limiting
@@ -12,7 +12,6 @@ const RATE_LIMIT = 50;
 const RATE_LIMIT_WINDOW = 15 * 60 * 1000; // 15 minutes in milliseconds
 
 export async function POST(request) {
-  console.log("API route hit");
   try {
     // Check rate limit
     if (Date.now() > rateLimitStore.resetTime + RATE_LIMIT_WINDOW) {
@@ -39,7 +38,6 @@ export async function POST(request) {
       );
     }
 
-    // Simple email format check
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (!email || !emailRegex.test(email)) {
       return NextResponse.json(
@@ -48,70 +46,63 @@ export async function POST(request) {
       );
     }
 
-    // Message length check
-    if (!message || message.trim().length === 0 || message.length > 1000) {
+    if (!message || message.trim().length === 0 || message.length > 2000) {
       return NextResponse.json(
-        { message: "El mensaje debe tener entre 1 y 1000 caracteres" },
+        { message: "El mensaje debe tener entre 1 y 2000 caracteres" },
         { status: 400 }
       );
     }
 
     // Sanitize inputs
-    const sanitizedName = sanitize(name);
-    const sanitizedEmail = sanitize(email);
-    const sanitizedMessage = sanitize(message);
+    const sanitizedName = sanitize(name.trim());
+    const sanitizedEmail = sanitize(email.trim());
+    const sanitizedMessage = sanitize(message.trim());
 
-    // Check if the API key is available
-    if (!process.env.SENDGRID_API_KEY) {
-      console.error("SendGrid API key is not defined");
+    const apiKey = process.env.RESEND_API_KEY || process.env.SENDGRID_API_KEY;
+    if (!apiKey) {
+      console.error("No email API key configured (RESEND_API_KEY)");
       return NextResponse.json(
-        { message: "Error de configuración del servidor" },
+        { message: "Error de configuración del servidor de correo" },
         { status: 500 }
       );
     }
 
-    const transporter = nodemailer.createTransport({
-      host: "smtp.sendgrid.net",
-      port: 587,
-      secure: false, // true for 465, false for other ports
-      auth: {
-        user: "apikey",
-        pass: process.env.SENDGRID_API_KEY,
-      },
+    const resend = new Resend(apiKey);
+    const toEmail = process.env.CONTACT_TO_EMAIL || "alilekhal772@gmail.com";
+    const fromEmail = process.env.CONTACT_FROM_EMAIL || "Portfolio Ali <onboarding@resend.dev>";
+
+    const { data, error } = await resend.emails.send({
+      from: fromEmail,
+      to: [toEmail],
+      reply_to: sanitizedEmail,
+      subject: `Nuevo mensaje de ${sanitizedName} (alilekhal.com)`,
+      text: `Nombre: ${sanitizedName}\nCorreo: ${sanitizedEmail}\n\nMensaje:\n${sanitizedMessage}`,
+      html: `
+        <div style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; max-width: 600px; margin: 0 auto; padding: 24px; border: 1px solid #eaeaea; border-radius: 8px;">
+          <h2 style="color: #111; margin-top: 0;">Nuevo mensaje desde tu Portfolio</h2>
+          <p style="margin: 8px 0;"><strong>Nombre:</strong> ${sanitizedName}</p>
+          <p style="margin: 8px 0;"><strong>Correo:</strong> <a href="mailto:${sanitizedEmail}">${sanitizedEmail}</a></p>
+          <hr style="border: none; border-top: 1px solid #eee; margin: 20px 0;" />
+          <p style="margin: 8px 0;"><strong>Mensaje:</strong></p>
+          <div style="background-color: #f9f9f9; padding: 16px; border-radius: 6px; white-space: pre-wrap; font-size: 15px; line-height: 1.5; color: #333;">${sanitizedMessage}</div>
+          <hr style="border: none; border-top: 1px solid #eee; margin: 20px 0;" />
+          <p style="font-size: 12px; color: #888; margin-bottom: 0;">Mensaje enviado desde alilekhal.com. Puedes responder directamente a este correo para escribir a ${sanitizedName}.</p>
+        </div>
+      `,
     });
 
-    try {
-      console.log("Attempting to send email");
-      const info = await transporter.sendMail({
-        from: process.env.CONTACT_FROM_EMAIL || "lekhalali56@gmail.com",
-        to: process.env.CONTACT_TO_EMAIL || "lekhalali56@gmail.com",
-        replyTo: sanitizedEmail,
-        subject: `Nuevo mensaje de ${sanitizedName} (portfolio)`,
-        text: `
-          Nombre: ${sanitizedName}
-          Correo: ${sanitizedEmail}
-          Mensaje: ${sanitizedMessage}
-        `,
-        headers: {
-          "X-Priority": "3",
-          "X-MSMail-Priority": "Normal",
-          Importance: "Normal",
-          "X-Mailer": "Portfolio Ali Lekhal",
-        },
-      });
-      console.log("Email sent successfully:", info);
-
+    if (error) {
+      console.error("Resend error:", error);
       return NextResponse.json(
-        { message: "Mensaje enviado correctamente" },
-        { status: 200 }
-      );
-    } catch (sendError) {
-      console.error("Error sending email:", sendError);
-      return NextResponse.json(
-        { message: "Error al enviar el mensaje", error: sendError.message },
+        { message: "Error al enviar el mensaje", error: error.message },
         { status: 500 }
       );
     }
+
+    return NextResponse.json(
+      { message: "Mensaje enviado correctamente", id: data?.id },
+      { status: 200 }
+    );
   } catch (error) {
     console.error("Error in API route:", error);
     return NextResponse.json(
