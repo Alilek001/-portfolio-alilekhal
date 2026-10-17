@@ -35,7 +35,7 @@ export const Hero = ({ id }) => {
               <p>{t.hero.available}</p>
               <div>
                 <div>{t.hero.location}</div>
-                <div>{localTime}</div>
+                <div suppressHydrationWarning>{localTime}</div>
               </div>
               <p>{t.hero.tagline}</p>
             </motion.div>

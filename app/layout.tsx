@@ -62,12 +62,12 @@ function AppShell({
   }, [isLoading]);
 
   return (
-    <html lang="es">
+    <html lang="es" suppressHydrationWarning>
       <MetadataProvider
         seoTitle={metadata.title}
         seoDescription={metadata.description}
       />
-      <body>
+      <body suppressHydrationWarning>
         <AnimatePresence mode="wait">
           {isLoading && <Preloader />}
         </AnimatePresence>

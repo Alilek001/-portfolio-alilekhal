@@ -3,22 +3,23 @@ import { useState, useEffect } from "react";
 
 // Hora actual de Madrid en formato España (24 h), p. ej. "18:05".
 export function useLocalTime() {
-  const [time, setTime] = useState(new Date());
+  const [time, setTime] = useState("");
 
   useEffect(() => {
-    const timer = setInterval(() => {
-      setTime(new Date());
-    }, 1000);
+    const updateTime = () => {
+      const formatter = new Intl.DateTimeFormat("es-ES", {
+        timeZone: "Europe/Madrid",
+        hour: "2-digit",
+        minute: "2-digit",
+        hourCycle: "h23",
+      });
+      setTime(formatter.format(new Date()));
+    };
 
+    updateTime();
+    const timer = setInterval(updateTime, 1000);
     return () => clearInterval(timer);
   }, []);
 
-  const formatter = new Intl.DateTimeFormat("es-ES", {
-    timeZone: "Europe/Madrid",
-    hour: "2-digit",
-    minute: "2-digit",
-    hourCycle: "h23",
-  });
-
-  return formatter.format(time);
+  return time;
 }
