@@ -68,8 +68,8 @@ export async function POST(request) {
     }
 
     const resend = new Resend(apiKey);
-    const toEmail = process.env.CONTACT_TO_EMAIL || "alilekhal772@gmail.com";
-    const fromEmail = process.env.CONTACT_FROM_EMAIL || "Portfolio Ali <onboarding@resend.dev>";
+    const toEmail = process.env.CONTACT_TO_EMAIL || "lekhalali56@gmail.com";
+    const fromEmail = process.env.CONTACT_FROM_EMAIL || "Ali Lekhal <contacto@alilekhal.com>";
 
     const { data, error } = await resend.emails.send({
       from: fromEmail,
