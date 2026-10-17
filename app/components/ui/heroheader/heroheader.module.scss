@@ -1,0 +1,16 @@
+.hero__header {
+  width: 100%;
+  text-wrap: balance;
+  display: flex;
+  color: #171717;
+  font-family: "Brown-Sugar", "Arial", sans-serif;
+  font-weight: normal;
+
+  .hero__name {
+    display: block;
+    width: 100%;
+    font-size: clamp(3rem, 8.2vw, 9rem);
+    line-height: 1;
+    white-space: nowrap;
+  }
+}

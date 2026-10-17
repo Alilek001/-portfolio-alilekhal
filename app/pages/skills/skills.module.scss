@@ -1,0 +1,250 @@
+@use "../../scss/globals.scss" as clr;
+@use "../../scss/globals.scss" as mq;
+
+.skills__section {
+  height: 100%;
+  background-color: clr.$black;
+  position: relative;
+  padding-bottom: 40rem;
+  width: 100%;
+  overflow-x: hidden;
+  border-radius: 0 0 2em 2em;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 4px 6px -1px,
+    rgba(0, 0, 0, 0.3) 0px 1px 3px 0px;
+
+  .hidden {
+    display: none;
+    pointer-events: none;
+  }
+
+  .noise__container__white {
+    z-index: 5;
+  }
+
+  .skills__h1 {
+    font-family: "Brown-Sugar";
+    color: clr.$white;
+    padding: 10rem 7rem 4rem;
+    font-size: 7rem;
+    line-height: 1;
+
+    @include mq.desktopXL {
+      font-size: 5rem;
+      padding: 10rem 3rem 4rem;
+    }
+
+    @include mq.desktopXS {
+      font-size: 5rem;
+      padding: 8rem 3rem 3rem;
+    }
+    @include mq.mobileL {
+      padding: 8rem 1.5rem 3rem;
+      font-size: 15vw;
+    }
+    @include mq.mobileS {
+      font-size: 18vw;
+    }
+  }
+
+  .skills__btn__container {
+    display: flex;
+    padding: 0 7rem 6rem;
+    font-size: 1rem;
+    align-items: center;
+    color: clr.$white;
+    text-transform: uppercase;
+    font-family: "GeneralSans-Regular";
+
+    @include mq.desktopXL {
+      padding: 0rem 3rem 4rem;
+    }
+    @include mq.mobileL {
+      padding: 0rem 1.5rem 4rem;
+    }
+
+    .view {
+      color: clr.$orange-ish;
+      padding-right: 1.5rem;
+    }
+
+    div {
+      padding-right: 0.6rem;
+    }
+    .checkbox__btn {
+      margin-right: 2rem;
+      height: 0.9rem;
+      width: 0.9rem;
+      border: 0.5px solid clr.$white;
+      background-color: clr.$black;
+      cursor: pointer;
+      transition: all 0.4s ease-in;
+      z-index: 15;
+    }
+
+    .activeClass {
+      background-color: clr.$white;
+    }
+  }
+  .marquee__container,
+  .readable__container {
+    position: absolute;
+    top: 60;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    will-change: transform;
+    z-index: 100;
+  }
+
+  .marquee__container {
+    .hidden {
+      display: none;
+    }
+
+    .rowWrapper {
+      position: relative;
+      display: flex;
+      width: 100%;
+    }
+
+    .row__container {
+      display: flex;
+      width: 100%;
+      height: 4rem;
+
+      @include mq.desktopXS {
+        height: 3rem;
+      }
+      @include mq.mobileL {
+        height: 2.8rem;
+      }
+
+      &:nth-child(2) {
+        position: absolute;
+        left: 100%;
+      }
+      &.leftNegative:nth-child(2) {
+        left: -100%;
+      }
+    }
+
+    .column {
+      height: 100%;
+
+      &.blue {
+        background-color: clr.$blue;
+      }
+      &.green {
+        background-color: clr.$green;
+      }
+      &.orange-ish {
+        background-color: clr.$orange-ish;
+      }
+      &.dark-blue {
+        background-color: clr.$dark-blue;
+      }
+      &.black {
+        background-color: clr.$black;
+      }
+      &.yellow {
+        background-color: clr.$yellow;
+      }
+      &.white {
+        background-color: clr.$white;
+      }
+      &.dark-grey {
+        background-color: clr.$dark-grey;
+      }
+      &.light-green {
+        background-color: clr.$light-green;
+      }
+      &.grey {
+        background-color: clr.$grey;
+      }
+      &.cream {
+        background-color: clr.$cream;
+      }
+      &.orange {
+        background-color: clr.$orange;
+      }
+      &.red {
+        background-color: clr.$red;
+      }
+      &.pink {
+        background-color: clr.$pink;
+      }
+      &.teal {
+        background-color: clr.$teal;
+      }
+      &.brown {
+        background-color: clr.$brown;
+      }
+      &.grey-blue {
+        background-color: clr.$grey-blue;
+      }
+    }
+
+    .centered__word {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100%;
+      font-family: "GeneralSans-Regular";
+      text-transform: uppercase;
+
+      @include mq.tabletL {
+        font-size: 0.9rem;
+      }
+      @include mq.mobileL {
+        font-size: 0.8rem;
+      }
+      @include mq.mobileS {
+        font-size: 0.7rem;
+      }
+    }
+  }
+
+  .readable__container {
+    color: clr.$white;
+    padding: 0 7rem;
+    width: 100%;
+    height: 100%;
+    text-transform: uppercase;
+    font-family: "GeneralSans-Regular";
+
+    @include mq.desktopXL {
+      padding: 0 3rem;
+    }
+    @include mq.mobileL {
+      padding: 0 1.5rem;
+    }
+
+    .readable__flex {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8rem;
+
+      @include mq.tabletS {
+        gap: 5rem;
+      }
+      @include mq.mobileS {
+        gap: 3rem;
+      }
+
+      .readable__category {
+        font-size: 1.5rem;
+        margin-bottom: 1rem;
+        color: clr.$orange-ish;
+        @include mq.mobileL {
+          font-size: 1rem;
+        }
+      }
+
+      .list__skills {
+        @include mq.tabletS {
+          font-size: 0.9rem;
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,210 @@
+@use "../../../scss/globals.scss" as clr;
+@use "../../../scss/globals.scss" as mq;
+
+.project__container {
+  width: 100%;
+  height: 100%;
+  min-height: 100dvh;
+  padding: 0rem 13rem 2rem;
+  display: flex;
+  justify-content: center;
+  font-family: "GeneralSans-Regular";
+
+  @include mq.desktopXL {
+    padding: 0rem 3rem 2rem;
+  }
+  @include mq.mobileL {
+    padding: 0rem 1.5rem 2rem;
+  }
+
+  .project__content {
+    display: flex;
+    flex-direction: column;
+    max-width: 1400px;
+
+    .project__landing {
+      height: 90vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      gap: 5rem;
+      margin-top: 2rem;
+      .project__h1 {
+        color: clr.$black;
+        font-family: "Brown-Sugar";
+        line-height: 0.9;
+        font-size: 6rem;
+        text-transform: uppercase;
+        @include mq.desktopL {
+          font-size: 4rem;
+        }
+        @include mq.mobileL {
+          font-size: 14vw;
+        }
+      }
+      .fse__h1 {
+        color: clr.$black;
+        font-family: "Brown-Sugar";
+        line-height: 0.9;
+        font-size: 5rem;
+        text-transform: uppercase;
+        @include mq.desktopXL {
+          font-size: 4rem;
+        }
+        @include mq.desktop {
+          font-size: 3rem;
+        }
+        @include mq.tabletM {
+          font-size: 2rem;
+        }
+        @include mq.mobileL {
+          text-align: center;
+          font-size: 2.5rem;
+        }
+        @include mq.mobileS {
+          text-align: center;
+          font-size: 2rem;
+        }
+      }
+
+      .project__desc__1 {
+        font-family: "GeneralSans-Regular";
+        font-size: 2rem;
+        width: 60%;
+        @include mq.desktopL {
+          font-size: 1.5rem;
+        }
+        @include mq.desktopXS {
+          font-size: 1.25rem;
+          width: 70%;
+        }
+        @include mq.tabletS {
+          font-size: 1.25rem;
+          width: 100%;
+        }
+        @include mq.mobileL {
+          font-size: 1rem;
+          width: 100%;
+        }
+      }
+    }
+
+    .project__details {
+      display: flex;
+      align-self: center;
+      width: 60%;
+      justify-content: space-between;
+      margin-top: 1rem;
+      @include mq.desktopXS {
+        width: 70%;
+      }
+      @include mq.desktopXS {
+        width: 100%;
+      }
+      @include mq.mobileL {
+        font-size: 0.9rem;
+      }
+
+      .details__header {
+        text-transform: uppercase;
+        font-weight: 600;
+        padding-bottom: 1rem;
+        @include mq.mobileL {
+          font-size: 0.9rem;
+        }
+      }
+    }
+
+    .project__content__two {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 5;
+      justify-content: center;
+      height: 100%;
+
+      .project__img1,
+      .project__img2 {
+        width: 100%;
+        object-fit: cover;
+        max-height: 800px;
+        box-shadow: 11px 11px 22px #9e9e9e, 21px 21px 52px #d9d9d9;
+        z-index: 5;
+        @include mq.mobileL {
+          height: 300px;
+        }
+      }
+
+      p {
+        font-size: 1.25rem;
+        text-align: left;
+        margin: 10rem auto;
+        max-width: 80%;
+        padding: 0 10%;
+        @include mq.tabletS {
+          max-width: 100%;
+          padding: 0;
+        }
+
+        @include mq.mobileL {
+          margin: 6rem auto;
+          font-size: 1rem;
+        }
+      }
+
+      .video__two {
+        width: 100%;
+        max-height: 800px;
+        box-shadow: 11px 11px 22px #9e9e9e, 21px 21px 52px #d9d9d9;
+
+        pointer-events: none;
+
+        &::-webkit-media-controls {
+          display: none !important;
+          opacity: 0;
+        }
+
+        &::-webkit-media-controls-start-playback-button {
+          display: none !important;
+        }
+      }
+
+      div {
+        margin-bottom: 16rem;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        @include mq.mobileL {
+          margin-bottom: 10rem;
+        }
+        .visit__here {
+          margin: 2rem auto;
+          font-size: 2rem;
+          font-family: "Brown-Sugar";
+          @include mq.desktopL {
+            font-size: 1.5rem;
+          }
+        }
+
+        .project__link {
+          text-decoration: none;
+          padding: 1rem 8rem;
+          border-radius: 2em;
+          background-color: clr.$black;
+          color: clr.$white;
+          text-transform: uppercase;
+          transition: all 0.3s ease;
+
+          &:hover {
+            background-color: clr.$dark-grey;
+          }
+
+          @include mq.mobileL {
+            padding: 1rem 6rem;
+          }
+        }
+      }
+    }
+  }
+}

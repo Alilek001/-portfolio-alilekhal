@@ -1,0 +1,167 @@
+@use "../../../scss/globals.scss" as clr;
+@use "../../../scss/globals.scss" as mq;
+
+.selected__card {
+  width: 100%;
+  font-family: "GeneralSans-Regular";
+  cursor: pointer;
+  display: flex;
+  // z-index: -1;
+  gap: 6rem;
+  justify-content: flex-end;
+  height: 100%;
+  overflow: hidden;
+  padding: 0.75rem;
+
+  @include mq.desktopM {
+    gap: 2rem;
+  }
+  @include mq.desktop {
+    gap: 4rem;
+  }
+  @include mq.tabletL {
+    gap: 2rem;
+  }
+  @include mq.tabletS {
+    flex-direction: column;
+
+    gap: 0;
+  }
+}
+
+.selected__video {
+  max-width: 587px;
+  height: 100%;
+  filter: none;
+  z-index: -1;
+  box-shadow: 3px 3px 10px #c9c9c9, 5px 5px 22px #f9f7e8;
+  pointer-events: none;
+
+  &::-webkit-media-controls {
+    display: none !important;
+    opacity: 0;
+  }
+
+  &::-webkit-media-controls-start-playback-button {
+    display: none !important;
+  }
+  @include mq.tabletS {
+    // max-height: 300px;
+    width: 100%;
+    box-shadow: none;
+    order: 1;
+    margin-bottom: 0.5rem;
+  }
+}
+
+.selected__card__info {
+  width: 56%;
+  transition: all 0.5s ease-in;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding-left: 4rem;
+
+  @include mq.desktopXL {
+    padding-left: 2rem;
+  }
+  @include mq.desktopL {
+    padding-left: 0rem;
+  }
+  @include mq.tabletS {
+    order: 2;
+    width: 100%;
+  }
+
+  .selected__project__title {
+    font-size: 1.5rem;
+    line-height: 0.9;
+    text-transform: uppercase;
+    font-weight: 600;
+
+    @include mq.desktop {
+      font-size: 1.25rem;
+    }
+    @include mq.desktopXS {
+      font-size: 1rem;
+      @include mq.tabletS {
+        margin-bottom: 2rem;
+        order: 2;
+        font-size: 1.5rem;
+      }
+      @include mq.mobileL {
+        font-size: 1.25rem;
+      }
+    }
+  }
+  .selected__project__desc {
+    font-size: 1rem;
+    margin-top: -8rem;
+    max-width: 90%;
+    text-wrap: balance;
+
+    @include mq.desktopXS {
+      margin-top: -2rem;
+      max-width: 100%;
+      font-size: 0.9rem;
+      // text-transform: uppercase;
+    }
+    @include mq.tabletS {
+      order: 3;
+      margin: 0 0 4rem;
+      width: 100%;
+    }
+  }
+  .view__more__btn {
+    font-size: 1rem;
+    line-height: 0.9rem;
+    @include mq.tabletS {
+      order: 4;
+    }
+  }
+}
+.selected__number__container {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  width: 10%;
+  align-items: flex-end;
+  text-transform: uppercase;
+
+  @include mq.tabletS {
+    order: 1;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    margin-bottom: 2rem;
+  }
+
+  .selected__number {
+    line-height: 0.9;
+    font-size: 1.5rem;
+
+    @include mq.desktop {
+      font-size: 1.25rem;
+    }
+    @include mq.desktopXS {
+      font-size: 1rem;
+    }
+    @include mq.mobileL {
+      font-size: 0.9rem;
+    }
+  }
+
+  .selected__type {
+    font-size: 1rem;
+    @include mq.desktopXS {
+      font-size: 0.9rem;
+    }
+    @include mq.tabletS {
+      font-size: 1rem;
+    }
+    @include mq.mobileL {
+      font-size: 0.9rem;
+    }
+  }
+}

@@ -1,0 +1,258 @@
+@use "../../scss/globals.scss" as clr;
+@use "../../scss/globals.scss" as mq;
+
+.about__container {
+  background-color: clr.$black;
+  height: 100%;
+  width: 100%;
+  padding: 10rem 7rem 6rem;
+  color: clr.$white;
+  border-top: 1px solid #171717;
+  z-index: 3;
+  margin-top: -5rem;
+  position: relative;
+  @include mq.desktopXL {
+    padding: 10rem 3rem 6rem;
+  }
+  @include mq.tabletS {
+    padding: 7rem 3rem 6rem;
+  }
+  @include mq.mobileL {
+    padding: 7rem 1.5rem 6rem;
+  }
+
+  .about__content {
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+    z-index: 5;
+
+    @include mq.desktopXL {
+      gap: 2rem;
+    }
+    @include mq.desktopL {
+      gap: 6rem;
+    }
+    @include mq.tabletL {
+      flex-direction: column;
+      gap: 0rem;
+    }
+
+    .about__left {
+      width: 50%;
+      position: relative;
+
+      @include mq.tabletL {
+        width: 100%;
+      }
+
+      .about__h1__mobile {
+        font-size: 17vw;
+        margin-bottom: 4rem;
+        font-family: "Brown-Sugar";
+        @include mq.tablet {
+          margin-bottom: 2rem;
+        }
+      }
+
+      .about__h1 {
+        font-family: "Brown-Sugar";
+        margin-bottom: 4rem;
+        margin-top: -6rem;
+
+        @include mq.desktopXS {
+          margin-top: -3rem;
+        }
+
+        @include mq.tabletS {
+          margin-bottom: 6.5rem;
+        }
+        @include mq.mobileL {
+          margin-bottom: 6.5rem;
+        }
+
+        .a__little {
+          font-size: 3rem;
+          @include mq.desktopXS {
+            font-size: 2rem;
+          }
+          @include mq.tabletS {
+            font-size: 1.5rem;
+          }
+        }
+
+        .about__me {
+          font-size: 6rem;
+          line-height: 0.8;
+          z-index: 4;
+
+          @include mq.desktopXS {
+            font-size: 4rem;
+          }
+          @include mq.tabletS {
+            font-size: 4rem;
+          }
+          @include mq.mobileL {
+            font-size: 14vw;
+          }
+        }
+      }
+      .about__image {
+        width: 100%;
+        height: auto;
+        max-width: 550px;
+        object-fit: cover;
+        border-radius: 0.25em;
+        z-index: 5;
+        background-image: url("../../../public/images/ali.webp");
+
+        @include mq.desktopL {
+          width: 500px;
+        }
+
+        @include mq.tabletL {
+          width: 35%;
+          position: absolute;
+          display: block;
+          right: 0;
+          top: -40px;
+          z-index: 0;
+        }
+
+        @include mq.tablet {
+          top: -60px;
+        }
+
+        @include mq.tabletS {
+          width: 100%;
+          position: relative;
+        }
+      }
+    }
+    .about__right {
+      width: 50%;
+      font-family: "GeneralSans-Regular";
+      margin-top: 6rem;
+
+      @include mq.tabletL {
+        width: 100%;
+        margin-top: -2rem;
+      }
+
+      .quote {
+        font-size: 1.5rem;
+
+        @include mq.tabletS {
+          margin-top: 1rem;
+        }
+
+        @include mq.mobileL {
+          font-size: 1.25rem;
+          margin-top: 1.5rem;
+        }
+      }
+
+      div {
+        font-size: 1.5rem;
+        margin-bottom: 3rem;
+        max-width: 80%;
+
+        @include mq.desktopXS {
+          font-size: 1.25rem;
+        }
+        @include mq.tabletL {
+          max-width: 60%;
+          margin-bottom: 1.5rem;
+        }
+        @include mq.tabletS {
+          max-width: 100%;
+        }
+
+        .bg__orangeIsh {
+          background-color: clr.$orange-ish;
+          padding: 0.1rem 0.3rem;
+          color: #171717;
+          font-weight: 600;
+        }
+
+        .bg__blue {
+          background-color: clr.$blue;
+          padding: 0.1rem 0.3rem;
+          color: #171717;
+          font-weight: 600;
+        }
+        .bg__green {
+          background-color: clr.$green;
+          padding: 0.1rem 0.3rem;
+          color: #171717;
+          font-weight: 600;
+        }
+        .bg__yellow {
+          background-color: clr.$yellow;
+          padding: 0.1rem 0.3rem;
+          color: #171717;
+          font-weight: 600;
+        }
+      }
+
+      .about__buttons {
+        display: flex;
+        gap: 1.5rem;
+        margin-top: 1rem;
+        margin-bottom: 2rem;
+        flex-wrap: wrap;
+        position: relative;
+        z-index: 30;
+
+        .cv__btn,
+        .linkedin__btn {
+          display: inline-flex;
+          align-items: center;
+          justify-content: center;
+          padding: 0.8rem 1.8rem;
+          font-size: 1.1rem;
+          border-radius: 2px;
+          text-decoration: none;
+          text-transform: uppercase;
+          letter-spacing: 0.05em;
+          transition: all 0.3s ease;
+          font-family: "GeneralSans-Regular";
+          font-weight: 500;
+          position: relative;
+          z-index: 31;
+          cursor: pointer;
+          pointer-events: auto;
+
+          @include mq.mobileL {
+            width: 100%;
+            padding: 0.75rem 1.5rem;
+            font-size: 1rem;
+          }
+        }
+
+        .cv__btn {
+          background-color: clr.$white;
+          color: clr.$black;
+          border: 1px solid clr.$white;
+
+          &:hover {
+            background-color: transparent;
+            color: clr.$white;
+          }
+        }
+
+        .linkedin__btn {
+          background-color: transparent;
+          color: clr.$white;
+          border: 1px solid clr.$white;
+
+          &:hover {
+            background-color: clr.$white;
+            color: clr.$black;
+          }
+        }
+      }
+    }
+  }
+}

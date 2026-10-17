@@ -1,0 +1,149 @@
+@use "../../scss/globals.scss" as clr;
+@use "../../scss/globals.scss" as mq;
+
+.hero__container {
+  width: 100%;
+  height: 100vh;
+  // height: 100dvh;
+  padding: 0 7rem 2rem;
+  background-color: clr.$primary;
+  display: grid;
+  place-items: center;
+  position: relative;
+
+  @include mq.desktopXL {
+    padding: 0rem 3rem 2rem;
+  }
+  @include mq.tabletL {
+    padding: 0rem 1.5rem 2rem;
+  }
+
+  .hero__content__container {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+
+    .hero__mid {
+      display: flex;
+      flex-direction: column;
+      align-self: center;
+      font-size: 0.9rem;
+      justify-content: center;
+      width: 80%;
+      height: 100%;
+
+      @include mq.tabletL {
+        width: 100%;
+        padding: 0 1rem;
+      }
+      @include mq.tablet {
+        padding: 0rem;
+        margin-top: -4rem;
+      }
+
+      .h1__container {
+        color: clr.$black;
+        font-family: "Brown-Sugar";
+        display: flex;
+        flex-direction: column;
+        padding-top: 8rem;
+
+        .hero__subheader__small {
+          font-family: "GeneralSans-Regular";
+        }
+
+        .hero__subheader {
+          font-size: 3rem;
+          margin-top: 1rem;
+
+          @include mq.desktop {
+            font-size: clamp(2rem, 3.5vw, 2.5rem);
+          }
+        }
+
+        .h1__first,
+        .h1__last {
+          font-size: clamp(4.3rem, 15vw, 8rem);
+          line-height: 1;
+
+          @include mq.mobileXS {
+            font-size: 18vw;
+          }
+        }
+
+        .hero__subheader__mobile {
+          font-family: "GeneralSans-Regular";
+          margin-top: 1rem;
+          max-width: 200px;
+          font-weight: 700;
+        }
+        .mobile__time {
+          font-family: "GeneralSans-Regular";
+          color: #686868;
+
+          padding-top: 2rem;
+        }
+      }
+
+      .hero__info__container {
+        display: flex;
+        justify-content: space-between;
+        padding-top: 2rem;
+        font-family: "GeneralSans-Regular";
+        color: clr.$black;
+
+        p {
+          max-width: 200px;
+        }
+      }
+    }
+  }
+}
+
+.bottom__container {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: auto;
+  width: 100%;
+
+  .bottom__space__between {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    .bottom__links {
+      display: flex;
+      gap: 2.5rem;
+      font-family: "GeneralSans-Regular";
+      color: clr.$dark-grey;
+      order: 2;
+      cursor: pointer;
+      text-decoration: none;
+
+      @include mq.mobileL {
+        flex-direction: column;
+        gap: 0.5rem;
+        order: 1;
+      }
+    }
+    .flex__container {
+      display: flex;
+      align-items: center;
+      margin: auto;
+    }
+
+    .scroll__down {
+      font-family: "GeneralSans-Regular";
+      color: #686868;
+      order: 1;
+      pointer-events: none;
+      width: fit-content;
+
+      @include mq.mobileL {
+        order: 2;
+        font-size: 0.9rem;
+        align-self: flex-end;
+      }
+    }
+  }
+}

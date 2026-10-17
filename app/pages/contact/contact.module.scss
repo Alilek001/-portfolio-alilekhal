@@ -1,0 +1,212 @@
+@use "../../scss/globals.scss" as clr;
+@use "../../scss/globals.scss" as mq;
+
+.contact__section {
+  min-height: 100vh;
+  height: 100%;
+  width: 100%;
+  background-color: clr.$light-green;
+  color: clr.$black;
+  font-family: "GeneralSans-Regular";
+  padding: 3.5rem 7rem 4rem;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  @include mq.desktopXL {
+    padding: 3rem 3rem 4rem;
+  }
+  @include mq.tabletS {
+    padding: 3rem 1.5rem 4rem;
+  }
+
+  .contact__h1 {
+    font-size: 6rem;
+    font-family: "Brown-Sugar";
+    line-height: 1.1;
+
+    @include mq.desktopL {
+      font-size: 5rem;
+    }
+
+    @include mq.desktopM {
+      font-size: 4.5rem;
+    }
+    @include mq.tabletS {
+      font-size: 3.5rem;
+    }
+    @include mq.mobileL {
+      font-size: 12vw;
+    }
+  }
+
+  @include mq.tabletS {
+    flex-direction: column;
+  }
+
+  .contact__content {
+    display: flex;
+    gap: 5rem;
+    margin-top: 2rem;
+    @include mq.tabletL {
+      justify-content: space-between;
+      gap: 3rem;
+    }
+    @include mq.mobileL {
+      flex-direction: column;
+      gap: 2rem;
+      margin-top: 1.5rem;
+    }
+
+    .contact__info {
+      display: flex;
+      flex-direction: column;
+      font-size: 1.25rem;
+      gap: 0.25rem;
+      @include mq.tabletL {
+        font-size: 1rem;
+      }
+      @include mq.mobileL {
+        display: none;
+      }
+    }
+
+    .contact__form {
+      display: flex;
+      flex-direction: column;
+      width: 50%;
+      text-transform: uppercase;
+      z-index: 15;
+
+      @include mq.tabletL {
+        width: 80%;
+      }
+      @include mq.mobileL {
+        width: 100%;
+      }
+
+      label {
+        font-size: 1.25rem;
+        margin-bottom: 0.5rem;
+
+        @include mq.desktop {
+          font-size: 1.1rem;
+        }
+      }
+
+      input,
+      textarea {
+        border: none;
+        border-bottom: 1px solid clr.$black;
+        background-color: transparent;
+        margin-bottom: 1.5rem;
+        height: 2rem;
+        padding: 0.3rem;
+        font-family: inherit;
+
+        @include mq.desktop {
+          margin-bottom: 1.2rem;
+        }
+      }
+
+      input:focus,
+      textarea:focus {
+        outline: none;
+      }
+
+      input:enabled {
+        background: clr.$light-green;
+      }
+
+      textarea {
+        resize: none;
+        height: 90px;
+      }
+      textarea::-webkit-scrollbar {
+        width: 4px;
+      }
+      textarea::-webkit-scrollbar-track {
+        -webkit-box-shadow: inset 0 0 2px rgba(0, 0, 0, 0.3);
+        -webkit-border-radius: 10px;
+        border-radius: 10px;
+      }
+
+      textarea::-webkit-scrollbar-thumb {
+        -webkit-border-radius: 10px;
+        border-radius: 10px;
+        background: clr.$black;
+        -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.5);
+      }
+
+      .send__btn {
+        font-size: 1.25rem;
+        border: 1px solid clr.$black;
+        color: clr.$black;
+        width: 11rem;
+        height: 3.5rem;
+        margin-top: 1rem;
+        padding: 0.4rem;
+        cursor: pointer;
+        text-align: center;
+        transition: all 0.3s ease-out;
+        text-transform: uppercase;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        background-color: transparent;
+        visibility: visible;
+        z-index: 10;
+        font-family: inherit;
+        letter-spacing: 0.05em;
+
+        @include mq.desktop {
+          font-size: 1.1rem;
+          width: 9.5rem;
+          height: 3.2rem;
+        }
+        @include mq.tabletL {
+          width: 8rem;
+          height: 3rem;
+          padding: 0.4rem;
+        }
+
+        &:hover {
+          background-color: clr.$black;
+          color: clr.$white;
+        }
+
+        .spinner {
+          width: 18px;
+          height: 18px;
+          border: 3px solid #171717;
+          border-bottom-color: transparent;
+          border-radius: 50%;
+          display: inline-block;
+          box-sizing: border-box;
+          animation: rotation 1s linear infinite;
+        }
+
+        @keyframes rotation {
+          0% {
+            transform: rotate(0deg);
+          }
+          100% {
+            transform: rotate(360deg);
+          }
+        }
+      }
+      .notification {
+        position: fixed;
+        bottom: 25px;
+        right: 20px;
+        background-color: white;
+        color: black;
+        padding: 35px;
+        border-radius: 5px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        z-index: 1000;
+      }
+    }
+  }
+}

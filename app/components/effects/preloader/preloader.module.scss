@@ -1,0 +1,70 @@
+@use "../../../scss/globals.scss" as clr;
+@use "../../../scss/globals.scss" as mq;
+
+.preloader__container {
+  background-color: clr.$black;
+  color: clr.$white;
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  padding: 2rem;
+  z-index: 1001;
+  font-family: "GeneralSans-Regular";
+
+  .loader__hello {
+    font-size: 4rem;
+    color: clr.$white;
+    z-index: 5;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    @include mq.desktop {
+      font-size: 3rem;
+    }
+    @include mq.tabletL {
+      font-size: 2.5rem;
+    }
+    @include mq.mobileL {
+      font-size: 2rem;
+      top: 40%;
+    }
+  }
+
+  .counter {
+    font-size: 18rem;
+    align-self: flex-end;
+    font-family: "Brown-Sugar";
+    line-height: 1;
+    transition: opacity 0.4s ease;
+    position: absolute;
+    right: 50px;
+    bottom: 50px;
+    z-index: 5;
+  }
+  .counter__hidden {
+    opacity: 0;
+  }
+
+  svg {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: calc(100% + 300px);
+
+    @include mq.mobileL {
+      height: calc(100% + 150px);
+    }
+
+    path {
+      fill: #141516;
+    }
+  }
+}

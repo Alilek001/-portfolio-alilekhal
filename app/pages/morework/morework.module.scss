@@ -1,0 +1,110 @@
+@use "../../scss/globals.scss" as clr;
+@use "../../scss/globals.scss" as mq;
+
+.more__section {
+  background-color: clr.$black;
+  width: 100%;
+  margin: auto;
+  height: 100%;
+  position: relative;
+  padding-top: 10rem;
+  border-radius: 2em 2em 0 0;
+  z-index: 3;
+
+  .noise__container__white {
+    z-index: -1;
+  }
+
+  .more__content {
+    padding: 8rem 7rem 14rem;
+    color: clr.$white;
+    transition: all 0.5s ease, filter 0.5s ease;
+    background-color: transparent;
+    height: 100%;
+    z-index: 2;
+
+    @include mq.desktopXL {
+      padding: 8rem 3rem 12rem;
+    }
+    @include mq.tabletS {
+      padding: 5rem 1.5rem 10rem;
+    }
+    @include mq.mobileL {
+      padding: 2rem 1.5rem 7rem;
+    }
+
+    .more__h1 {
+      font-family: "Brown-Sugar";
+      margin-bottom: 4rem;
+
+      .more__word {
+        font-size: 3rem;
+        @include mq.desktopXS {
+          font-size: 2rem;
+        }
+        @include mq.tabletS {
+          font-size: 1.5rem;
+        }
+      }
+
+      .projects__word {
+        font-size: 8rem;
+        line-height: 0.8;
+
+        @include mq.desktopXS {
+          font-size: 6rem;
+        }
+        @include mq.tabletS {
+          font-size: 4rem;
+        }
+        @include mq.mobileL {
+          font-size: 14vw;
+        }
+      }
+      .more__amount {
+        font-size: 1.5rem;
+        @include mq.tabletS {
+          font-size: 1rem;
+        }
+      }
+    }
+
+    .more__flex__container {
+      display: flex;
+      justify-content: space-between;
+
+      .hover__container {
+        width: 50%;
+        align-self: center;
+        @include mq.desktopXL {
+          width: 40%;
+        }
+        @include mq.desktopXS {
+          width: 30%;
+        }
+      }
+      .more__card__container {
+        width: 50%;
+
+        @include mq.desktopXS {
+          width: 55%;
+        }
+
+        a {
+          text-decoration: none;
+        }
+        .more__card__link {
+          color: inherit;
+          text-decoration: none;
+        }
+      }
+    }
+
+    .mobile__card__container {
+      height: 100%;
+      a {
+        text-decoration: none;
+      }
+    }
+  }
+}

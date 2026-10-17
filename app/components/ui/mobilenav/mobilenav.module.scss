@@ -1,0 +1,65 @@
+@use "../../../scss/globals.scss" as clr;
+@use "../../../scss/globals.scss" as mq;
+
+.nav__menu__mobile__container {
+  position: absolute;
+  z-index: 999;
+  padding: 1rem 7rem;
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  font-family: "GeneralSans-Regular";
+  overflow: hidden;
+
+  @include mq.tabletL {
+    padding: 1rem 1.5rem;
+  }
+
+  .nav__mobile__home__btn {
+    cursor: pointer;
+  }
+
+  .nav__mobile__links {
+    display: flex;
+    flex-direction: column;
+    gap: 0.2rem;
+  }
+
+  .nav__menu__mobile {
+    position: fixed;
+    background-color: clr.$dark-grey;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    height: 100%;
+    width: 100vw;
+    justify-content: space-between;
+
+    .nav__menu__flex {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      height: 100%;
+    }
+
+    li {
+      list-style: none;
+      color: clr.$white;
+      font-size: 2rem;
+    }
+
+    .gravity__container {
+      width: 100%;
+      align-content: end;
+    }
+  }
+
+  .mobile__menu__btn {
+    border: none;
+    background-color: transparent;
+    position: relative;
+    z-index: 200;
+    color: clr.$black;
+    cursor: pointer;
+  }
+}

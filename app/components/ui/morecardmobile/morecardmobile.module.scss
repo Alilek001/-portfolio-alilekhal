@@ -1,0 +1,54 @@
+@use "../../../scss/globals.scss" as clr;
+
+.mobile__card {
+  height: auto;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  font-family: "GeneralSans-Regular";
+  margin-bottom: 8rem;
+  .mobile__card__img {
+    max-height: 300px;
+    width: 100%;
+    object-fit: cover;
+    object-position: top;
+    padding-bottom: 0.5rem;
+  }
+
+  .mobile__card__info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.9rem;
+    padding-bottom: 1rem;
+    margin-bottom: 0.5rem;
+
+    .mobile__card__type {
+      text-transform: uppercase;
+    }
+  }
+
+  .mobile__card__title {
+    text-transform: uppercase;
+    font-size: 1.75rem;
+    padding-bottom: 2rem;
+    margin-bottom: -1rem;
+  }
+  .mobile__card__desc {
+    text-wrap: balance;
+    width: 80%;
+    margin-bottom: 6rem;
+    font-size: 0.9rem;
+  }
+
+  .view__more__btn {
+    text-transform: uppercase;
+    font-size: 0.9rem;
+    padding-bottom: 2rem;
+  }
+  .mobile__card__border {
+    border: 1px solid clr.$red;
+    width: 33%;
+    align-self: flex-end;
+  }
+}

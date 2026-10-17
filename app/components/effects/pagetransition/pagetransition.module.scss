@@ -1,0 +1,80 @@
+@use "../../../scss/globals.scss" as clr;
+@use "../../../scss/globals.scss" as mq;
+
+.transition__container {
+  background-color: clr.$black;
+  color: clr.$white;
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  padding: 2rem;
+  z-index: 1003;
+  opacity: 1;
+
+  .transition__boxes {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    justify-self: center;
+    align-self: center;
+    height: 2rem;
+    width: 8rem;
+    z-index: 1001;
+
+    @include mq.tabletS {
+      height: 1.5rem;
+      width: 5rem;
+    }
+
+    .blue__box {
+      background-color: clr.$blue;
+      width: 100%;
+      height: 100%;
+    }
+    .pink__box {
+      background-color: clr.$orange-ish;
+      width: 100%;
+      height: 100%;
+    }
+    .green__box {
+      background-color: clr.$green;
+      width: 100%;
+      height: 100%;
+    }
+    .yellow__box {
+      background-color: clr.$yellow;
+      width: 100%;
+      height: 100%;
+    }
+  }
+
+  .transition__text {
+    font-size: 3rem;
+    color: white;
+    z-index: 1001;
+    font-family: "GeneralSans-Regular";
+  }
+  svg {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: calc(100% + 300px);
+    z-index: 99;
+
+    @include mq.mobileL {
+      height: calc(100% + 150px);
+    }
+
+    path {
+      fill: clr.$black;
+    }
+  }
+}

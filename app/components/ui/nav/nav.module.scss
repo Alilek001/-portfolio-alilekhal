@@ -1,0 +1,37 @@
+@use "../../../scss/globals.scss" as clr;
+@use "../../../scss/globals.scss" as mq;
+
+.nav {
+  position: absolute;
+  top: 0;
+  z-index: 999;
+  padding: 1rem 7rem;
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  font-family: "GeneralSans-Regular";
+  overflow: hidden;
+  filter: blur(20px);
+
+  @include mq.desktopXL {
+    padding: 1rem 3rem;
+  }
+  @include mq.tabletL {
+    padding: 1rem 1.5rem;
+  }
+  .nav__left {
+    transition: all 0.3s ease-out;
+    cursor: pointer;
+  }
+
+  .nav__menu {
+    display: flex;
+    gap: 2rem;
+
+    li {
+      cursor: pointer;
+      list-style: none;
+      transition: all 0.3s ease-out;
+    }
+  }
+}

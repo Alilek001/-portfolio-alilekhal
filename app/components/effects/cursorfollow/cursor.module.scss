@@ -1,0 +1,20 @@
+.cursor {
+  pointer-events: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 998;
+  mix-blend-mode: difference;
+  align-content: center;
+  border-radius: 50%;
+
+  .cursorText {
+    font-size: 0.8rem;
+    pointer-events: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: "GeneralSans-Regular";
+    text-transform: uppercase;
+  }
+}

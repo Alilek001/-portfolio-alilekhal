@@ -1,0 +1,63 @@
+@use "../../scss/globals.scss" as clr;
+@use "../../scss/globals.scss" as mq;
+
+.footer__container {
+  background-color: clr.$light-green;
+  color: clr.$black;
+  font-family: "GeneralSans-Regular";
+  padding: 18rem 7rem 2rem;
+  position: relative;
+
+  @include mq.desktopXL {
+    padding: 18rem 3rem 2rem;
+  }
+  @include mq.tabletL {
+    padding: 8rem 3rem 2rem;
+  }
+  @include mq.mobileL {
+    padding: 6rem 1.5rem 2rem;
+  }
+
+  .footer__content {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    @include mq.tabletL {
+      display: grid;
+      justify-content: space-between;
+      grid-template-columns: 1fr 1fr;
+      grid-template-rows: 1fr 1fr;
+      gap: 3rem;
+    }
+    @include mq.mobileL {
+      grid-template-columns: 1fr;
+      gap: 2rem;
+    }
+
+    .footer__links {
+      display: flex;
+      flex-direction: column;
+      cursor: pointer;
+      z-index: 50;
+    }
+
+    .bottom__footer,
+    .top__footer {
+      display: flex;
+      justify-content: space-between;
+      width: 100%;
+    }
+
+    div {
+      max-width: 300px;
+      @include mq.tablet {
+        font-size: 0.9rem;
+        text-wrap: balance;
+        max-width: 350px;
+      }
+      @include mq.mobileL {
+        text-wrap: balance;
+      }
+    }
+  }
+}

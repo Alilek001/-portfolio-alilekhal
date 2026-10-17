@@ -1,0 +1,100 @@
+@use "../../../scss/globals.scss" as clr;
+@use "../../../scss/globals.scss" as mq;
+
+.morecard__container {
+  border-top: 0.5px solid clr.$grey;
+  display: flex;
+  height: 300px;
+  cursor: pointer;
+
+  @include mq.desktopL {
+    height: 280px;
+  }
+  @include mq.desktop {
+    height: 250px;
+  }
+
+  &:hover {
+    .number__container {
+      .card__number {
+        color: clr.$red;
+      }
+    }
+  }
+
+  .number__container {
+    width: 30%;
+    display: grid;
+    place-items: center;
+    .card__number {
+      font-size: 3.8rem;
+      font-family: "Brown-Sugar";
+      padding-bottom: 2rem;
+      transition: color 0.3s;
+
+      @include mq.desktopXL {
+        font-size: 3.5rem;
+      }
+      @include mq.desktopL {
+        font-size: 2.5rem;
+      }
+    }
+    .card__number.active {
+      color: clr.$red;
+    }
+  }
+
+  .card__content {
+    display: flex;
+    flex-direction: column;
+
+    width: 100%;
+
+    .more__deco {
+      width: 100%;
+      height: 2rem;
+      object-fit: cover;
+      background-color: clr.$grey;
+
+      @include mq.desktopXL {
+        height: 1.5rem;
+      }
+
+      @include mq.desktop {
+        height: 1rem;
+      }
+    }
+    .card__text {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+      padding: 1rem 3rem;
+      font-family: "GeneralSans-Regular";
+
+      @include mq.desktopXS {
+        font-size: 0.9rem;
+      }
+
+      .card__title {
+        align-self: flex-end;
+        font-family: "GeneralSans-Regular";
+        text-transform: uppercase;
+        font-size: 1.4rem;
+
+        @include mq.desktopXS {
+          font-size: 1.2rem;
+        }
+      }
+
+      .description__container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        .more__description {
+          width: 70%;
+        }
+      }
+    }
+  }
+}

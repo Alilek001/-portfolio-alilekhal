@@ -1,0 +1,169 @@
+// COLORS
+// $primary: #f9f7e8;
+$primary: #ece7e1;
+$black: #171717;
+$white: #fff;
+$green: #62bfad;
+$blue: #19aad1;
+$dark-blue: #005397;
+$orange: #fb9b2a;
+$orange-ish: #ff8788;
+$red: #e57066;
+$yellow: #f0cf61;
+$light-green: #aee0bc;
+$cream: #efe8d8;
+$pink: #ff8fa4;
+$brown: #501718;
+$teal: #b3e0e0;
+$grey-blue: #8aa9c6;
+$grey: #5f5f5f;
+$light-grey: #727272;
+$dark-grey: #28292b;
+
+// MEDIA QUERIES BREAKPOINTS
+$desktopXXL: 102rem;
+$desktopXL: 97.5em; // 1560px
+$desktopL: 91.25em; // 1460px
+$desktopM: 81.25em; // 1300px
+$desktop: 80em; //1280px
+$desktopS: 75em; //1200px
+$desktopXS: 71.875em; //1150px
+$tabletL: 60em; // 960px
+$tabletM: 50.625em; // 810px
+$tablet: 48em; // 768px
+$tabletS: 40.625em; // 650px
+$mobileL: 35em; // 560px
+$mobileS: 26.25em; // 420px
+$mobileXS: 23.125em; //370px
+
+@mixin desktopXXL {
+  @media (max-width: $desktopXXL) {
+    @content;
+  }
+}
+
+@mixin desktopXL {
+  @media (max-width: $desktopXL) {
+    @content;
+  }
+}
+
+@mixin desktopL {
+  @media (max-width: $desktopL) {
+    @content;
+  }
+}
+
+@mixin desktopM {
+  @media (max-width: $desktopM) {
+    @content;
+  }
+}
+
+@mixin desktop {
+  @media (max-width: $desktop) {
+    @content;
+  }
+}
+
+@mixin desktopS {
+  @media (max-width: $desktopS) {
+    @content;
+  }
+}
+
+@mixin desktopXS {
+  @media (max-width: $desktopXS) {
+    @content;
+  }
+}
+
+@mixin tabletL {
+  @media (max-width: $tabletL) {
+    @content;
+  }
+}
+
+@mixin tabletM {
+  @media (max-width: $tabletM) {
+    @content;
+  }
+}
+
+@mixin tablet {
+  @media (max-width: $tablet) {
+    @content;
+  }
+}
+
+@mixin tabletS {
+  @media (max-width: $tabletS) {
+    @content;
+  }
+}
+@mixin mobileL {
+  @media (max-width: $mobileL) {
+    @content;
+  }
+}
+
+@mixin mobileS {
+  @media (max-width: $mobileS) {
+    @content;
+  }
+}
+@mixin mobileXS {
+  @media (max-width: $mobileXS) {
+    @content;
+  }
+}
+
+@font-face {
+  font-family: "Brown-Sugar";
+  src: url("/assets/fonts/brownsugar.woff2") format("woff2");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+  font-family: "Brown-Sugar", "Arial", sans-serif;
+}
+
+@font-face {
+  font-family: "GeneralSans-Regular";
+  src: url("/assets/fonts/GeneralSans-Regular.woff2") format("woff2");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+  font-family: "GeneralSans-Regular", "Helvetica", "Arial", sans-serif;
+}
+
+.flex {
+  display: flex;
+}
+
+.hidden {
+  visibility: none;
+  pointer-events: none;
+}
+
+.overflow__hidden {
+  overflow: hidden;
+}
+
+.noise__container,
+.noise__container__white {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0.1;
+  pointer-events: none !important;
+}
+
+.noise__container {
+  background-image: url("/images/figmanoisegrey.png");
+}
+
+.noise__container__white {
+  background-image: url("/images/figmanoisewhite.webp");
+}
